@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class MovieRepositry {
+public class MovieRepository {
 
     @Autowired
     JdbcTemplate jdbcTemplate;
@@ -20,7 +20,7 @@ public class MovieRepositry {
 
     public Movie getById(int id) {
         return jdbcTemplate.queryForObject("SELECT id, name, rating FROM movie WHERE " +
-                "od = ?", BeanPropertyRowMapper.newInstance(Movie.class), id);
+                "id = ?", BeanPropertyRowMapper.newInstance(Movie.class), id);
     }
 
     public int save(List<Movie> movies) {

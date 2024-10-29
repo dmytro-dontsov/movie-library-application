@@ -3,6 +3,7 @@ package com.example.movielibrary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+
 import java.util.List;
 
 @RestController
@@ -10,20 +11,20 @@ import java.util.List;
 public class MovieController {
 
     @Autowired
-    MovieRepositry movieRepositry;
+    MovieRepository movieRepository;
 
-    @GetMapping("/")
+    @GetMapping("")
     public List<Movie> getAll() {
-        return movieRepositry.getAll();
+        return movieRepository.getAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("{id}")
     public Movie getById(@PathVariable("id") int id) {
-        return movieRepositry.getById(id);
+        return movieRepository.getById(id);
     }
 
-    @PostMapping("/")
+    @PostMapping("")
     public int add(@RequestBody List<Movie> movies) {
-        return movieRepositry.save(movies);
+        return movieRepository.save(movies);
     }
 }

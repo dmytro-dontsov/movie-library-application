@@ -12,4 +12,13 @@ public class Movie {
     private int id;
     private String name;
     private int rating;
+
+    public String getName() {
+        return name;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
 }
